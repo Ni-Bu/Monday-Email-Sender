@@ -1,22 +1,16 @@
-[
-build
-]
+[build]
 builder = "nixpacks"
 buildCommand = "pip install -r requirements.txt"
 
-[
-deploy
-]
-startCommand = "python monday_email_sender.py"
+[deploy]
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
-[[
-deploy.scheduled
-]]
+[[deploy.scheduled]]
 cron = "0 */4 * * 1-5"
 
-[
-nixpacks
-]
-start-command = "python monday_email_sender.py"
+[nixpacks]
+start = "python monday_email_sender.py"
+
+[[nixpacks.cmds]]
+value = "python monday_email_sender.py"
