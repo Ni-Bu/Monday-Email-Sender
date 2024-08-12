@@ -15,3 +15,8 @@ restartPolicyMaxRetries = 3
 deploy.scheduled
 ]]
 cron = "0 */4 * * 1-5"
+
+[
+nixpacks
+]
+start-command = "python monday_email_sender.py"
