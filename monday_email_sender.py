@@ -9,16 +9,15 @@ load_dotenv(encoding='utf-16')
 
 # Monday.com API credentials
 MONDAY_API_URL = "https://api.monday.com/v2"
-MONDAY_API_KEY = os.getenv('MONDAY_API_KEY')
-BOARD_ID = os.getenv('BOARD_ID')
-
+MONDAY_API_KEY = os.environ.get('MONDAY_API_KEY')
+BOARD_ID = os.environ.get('BOARD_ID')
 # SendGrid API credentials
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
-FROM_EMAIL = os.getenv('FROM_EMAIL')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+FROM_EMAIL = os.environ.get('FROM_EMAIL')
 
 # Check if all required environment variables are set
 required_vars = ['MONDAY_API_KEY', 'BOARD_ID', 'SENDGRID_API_KEY', 'FROM_EMAIL']
-missing_vars = [var for var in required_vars if not os.getenv(var)]
+missing_vars = [var for var in required_vars if not os.environ.get(var)]
 if missing_vars:
     raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
