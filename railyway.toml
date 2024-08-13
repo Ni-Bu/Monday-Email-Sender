@@ -5,6 +5,4 @@ dockerfilePath = "Dockerfile"
 [deploy]
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
-
-[[deploy.scheduled]]
 cron = "0 */4 * * 1-5"
