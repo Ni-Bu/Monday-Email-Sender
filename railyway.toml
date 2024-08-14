@@ -1,11 +1,13 @@
-[build]
-builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile"
-
 [deploy]
-restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 3
+builder = "Docker"
+start = "python3 /app/monday_email_sender.py"
 
-[[deploy.scheduled]]
-cron = "*/5 * * * *"
-command = "python monday_email_sender.py"
+[cron]
+schedule = "*/15 * * * *"
+command = "python3 /app/monday_email_sender.py"
+
+[build]
+dockerfile = "./Dockerfile"
+
+[env]
+RAILWAY_CRON = "true"
