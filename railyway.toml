@@ -3,7 +3,7 @@ builder = "Docker"
 start = "python3 /app/monday_email_sender.py"
 
 [cron]
-schedule = "*/15 * * * *"
+cronSchedule = "*/15 * * * *"
 command = "python3 /app/monday_email_sender.py"
 
 [build]
